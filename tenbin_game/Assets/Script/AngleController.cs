@@ -25,10 +25,19 @@ public class AngleController : MonoBehaviour
 		angle3.z = -angle3.z;
 		TrLeft.localEulerAngles = angle3;
 		TrRight.localEulerAngles = angle3;
+
+		if (angle > 25f)
+		{
+			angle = 25f;
+		}
+		if (angle < -25f)
+		{
+			angle = -25f;
+		}
 	}
 
 
-	public	void	ChangeAngle( float newAngle )
+	public void ChangeAngle( float newAngle )
 	{
 		angle = newAngle;
 	}
