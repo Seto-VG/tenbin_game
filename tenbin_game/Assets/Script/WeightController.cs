@@ -13,8 +13,6 @@ public class WeightoController : MonoBehaviour
     private bool _isFall = false;
     [SerializeField]
     private Collider _weightFallAreaR; // 判定したいコライダー
-    [SerializeField]
-    private Collider _weightFallAreaL;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +24,9 @@ public class WeightoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsObjectInsideCollider(gameObject, _weightFallAreaR) || IsObjectInsideCollider(gameObject, _weightFallAreaL))
+        if (IsObjectInsideCollider(gameObject, _weightFallAreaR))
         {
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
             _weightRb.isKinematic = false;
         }
         else if(!_isFall)
@@ -69,7 +68,7 @@ public class WeightoController : MonoBehaviour
 
     void OnMouseUp()
     {
-        if (IsObjectInsideCollider(gameObject, _weightFallAreaR) || IsObjectInsideCollider(gameObject, _weightFallAreaL))
+        if (IsObjectInsideCollider(gameObject, _weightFallAreaR))
         {
             _isFall = true;
         }
