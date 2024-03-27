@@ -5,40 +5,57 @@ using UnityEngine;
 public class AngleController : MonoBehaviour
 {
 	[SerializeField]
-	Transform	TrLeft;
+	Transform _TrLeft;
 	[SerializeField]
-	Transform	TrRight;
+	Transform _TrRight;
 
 	[SerializeField]
-	float	angle;
-	Vector3	angle3;
+	float _angle;
+	Vector3	_angle3;
+
+	[SerializeField]
+	Collider _weightDetectionArea; // 重量検知エリア
+	[SerializeField]
+	List<GameObject> _weightList = new List<GameObject>(); // 検知している重りのリスト
 
 	private void Start()
 	{
-		angle3 = Vector3.zero;
+		_angle3 = Vector3.zero;
 	}
 
 	private void Update()
 	{
-		angle3.z = angle;
-		transform.localEulerAngles = angle3;
-		angle3.z = -angle3.z;
-		TrLeft.localEulerAngles = angle3;
-		TrRight.localEulerAngles = angle3;
+		// 天秤の角度の調整
+		_angle3.z = _angle;
+		transform.localEulerAngles = _angle3;
+		_angle3.z = -_angle3.z;
+		_TrLeft.localEulerAngles = _angle3;
+		_TrRight.localEulerAngles = _angle3;
 
-		if (angle > 25f)
+		// 角度の限界値を設定
+		if (_angle > 25f)
 		{
-			angle = 25f;
+			_angle = 25f;
 		}
-		if (angle < -25f)
+		if (_angle < -25f)
 		{
-			angle = -25f;
+			_angle = -25f;
 		}
 	}
 
-
 	public void ChangeAngle( float newAngle )
 	{
-		angle = newAngle;
+		_angle = newAngle;
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		_weightList.Add(other.gameObject);
+		Debug.Log("当たった");
+	}
+
+	void OnCollisionExit(Collision other)
+	{
+		
 	}
 }
