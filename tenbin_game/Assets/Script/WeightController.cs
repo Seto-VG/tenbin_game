@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class WeightoController : MonoBehaviour
+public class WeightController : MonoBehaviour
 {
     [SerializeField]
     private Camera _cam;
@@ -26,7 +26,6 @@ public class WeightoController : MonoBehaviour
     {
         if (IsObjectInsideCollider(gameObject, _weightFallAreaR))
         {
-            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
             _weightRb.isKinematic = false;
         }
         else if(!_isFall)
@@ -71,6 +70,7 @@ public class WeightoController : MonoBehaviour
         if (IsObjectInsideCollider(gameObject, _weightFallAreaR))
         {
             _isFall = true;
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
         }
         else
         {
