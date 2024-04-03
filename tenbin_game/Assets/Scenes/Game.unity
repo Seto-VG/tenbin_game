@@ -599,6 +599,7 @@ MonoBehaviour:
   _TrLeft: {fileID: 0}
   _TrRight: {fileID: 0}
   _angle: 0
+  _itemWeight: 0
   _weightDetectionArea: {fileID: 0}
   _weightList: []
 --- !u!1 &516879363
@@ -964,9 +965,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1062496255}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 670e62ea7d0a1384fbca06499150bd4d, type: 3}
+  m_Script: {fileID: 11500000, guid: ab40f4fe6cc04904aa8423d9f7cf74ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angleController: {fileID: 8819079413794879851}
 --- !u!1 &1110929658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2376,6 +2378,7 @@ MonoBehaviour:
   _TrLeft: {fileID: 962340039465651447}
   _TrRight: {fileID: 6503434322261554011}
   _angle: 0
+  _itemWeight: 0
   _weightDetectionArea: {fileID: 1062496257}
   _weightList: []
 --- !u!1660057539 &9223372036854775807

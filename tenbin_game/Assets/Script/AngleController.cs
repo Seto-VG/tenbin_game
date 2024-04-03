@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class AngleController : MonoBehaviour
 	float _angle;
 	Vector3	_angle3;
 
+	[SerializeField]
+	float _itemWeight; // 課題物の重さ
 	[SerializeField]
 	Collider _weightDetectionArea; // 重量検知エリア
 	[SerializeField]
@@ -48,14 +51,14 @@ public class AngleController : MonoBehaviour
 		_angle = newAngle;
 	}
 
-	void OnTriggerEnter(Collider other)
+	public void EnterAreaObj(GameObject gameObject)
 	{
-		_weightList.Add(other.gameObject);
-		Debug.Log("当たった");
+		_weightList.Add(gameObject);
+		
 	}
 
-	void OnCollisionExit(Collision other)
+	public void ExitAreaObj(GameObject gameObject)
 	{
-		
+		_weightList.Remove(gameObject);
 	}
 }
