@@ -13,7 +13,7 @@ public abstract class SingletonBehavior<T> : MonoBehaviour where T : MonoBehavio
             {
                 Type t = typeof(T);
 
-                _instance = (T)FindObjectOfType(t);
+                _instance = (T)FindFirstObjectByType(t);
                 if (_instance == null) { Debug.Log("no game objects : " + t); }
             }
             return _instance;
