@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: WeightData
+  m_EditorClassIdentifier: Assembly-CSharp::WeightSetting
+  DataList:
+  - Id: "\uFF12\u756A\u306E\u91CD\u308A"
+    Weight: 2
+  - Id: "\uFF18\u756A\u306E\u91CD\u308A"
+    Weight: 8
+  - Id: "\uFF12\uFF10\u756A\u306E\u91CD\u308A"
+    Weight: 20
+  - Id: "\uFF13\uFF15\u756A\u306E\u91CD\u308A"
+    Weight: 35
+  - Id: "\uFF15\uFF10\u756A\u306E\u91CD\u308A"
+    Weight: 50
+  - Id: "\uFF18\uFF10\u756A\u306E\u91CD\u308A"
+    Weight: 80
+  - Id: "\uFF11\uFF10\uFF10\u756A\u306E\u91CD\u308A"
+    Weight: 100
