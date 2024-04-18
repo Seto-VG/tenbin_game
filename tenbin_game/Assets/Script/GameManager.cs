@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//using DG.Tweening;
+using DG.Tweening;
 
 public class GameManager : SingletonBehavior<GameManager>
 {
     bool _isInitialized = false;
     bool _isCompleteStage = false;
+    bool _nextSceneFlag = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,12 @@ public class GameManager : SingletonBehavior<GameManager>
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0) && _nextSceneFlag)
+        {
+            // 次のステージへ
+            StageManager.instance.SetNextStage();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     public bool IsInitialized() { return _isInitialized; }
@@ -33,23 +39,19 @@ public class GameManager : SingletonBehavior<GameManager>
 
         // FXManager.instance.PlayFireworks(); // TODO ゲームクリア後のエフェクト再生
 
-        // DOVirtual.DelayedCall(3.0f, () =>
-        // {
-        //     // TODO シーン管理
-        // });
-
-        if (StageManager.instance.IsLastStage())
+        DOVirtual.DelayedCall(3.0f, () =>
+        {
+            if (StageManager.instance.IsLastStage())
             {
                 // クリア画面へ遷移
-                SceneManager.LoadScene("ClearScene");
+                SceneManager.LoadScene("StageSelectScene");
                 return;
             }
             else
             {
-                // 次のステージへ
-                StageManager.instance.SetNextStage();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                _nextSceneFlag = true;
             }
+        });
     }
 
     // 初期化
