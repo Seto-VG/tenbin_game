@@ -10,7 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97c57d8c63f1e784898110376bfcbd8a, type: 3}
-  m_Name: 35WeghtData
+  m_Name: WeightData
   m_EditorClassIdentifier: 
-  weightName: "35\u756A\u306E\u91CD\u308A"
-  _weight: 35
+  DataList: []

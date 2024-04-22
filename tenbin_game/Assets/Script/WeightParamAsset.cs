@@ -1,10 +1,16 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/CreateEnemyParamAsset")]
-public class WeightParamAsset : ScriptableObject
+[Serializable]
+public class WeightData
 {
     public string weightName;
+    public float weight;
+}
 
-    [SerializeField]
-    int _weight;
+[CreateAssetMenu(fileName = "WeightData", menuName = "ScriptableObjects/WeightParam")]
+public class WeightParamAsset : ScriptableObject
+{
+    public List<WeightData> DataList;
 }
