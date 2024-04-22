@@ -25,6 +25,7 @@ public class AngleController : MonoBehaviour
 	[SerializeField]
 	List<GameObject> _weightList = new List<GameObject>(); // 検知している重りのリスト
 	[Header("ONにするとsumWeightがリセットされる(デバッグ用)")]
+	[SerializeField]
 	bool resetFlag = false;
 
 	private void Start()
