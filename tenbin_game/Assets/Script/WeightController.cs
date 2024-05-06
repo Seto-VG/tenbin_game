@@ -13,6 +13,8 @@ public class WeightController : MonoBehaviour
     private bool _isFall = false;
     [SerializeField]
     private Collider _weightFallAreaR; // 判定したいコライダー
+    [SerializeField]
+    public float weight;
 
     // Start is called before the first frame update
     void Start()

@@ -82,6 +82,7 @@ public class AngleController : MonoBehaviour
 
 	public void EnterAreaObj(GameObject gameObject)
 	{
+		if(!_weightList.Contains(gameObject))
 		_weightList.Add(gameObject);
 	}
 
