@@ -1534,7 +1534,7 @@ MonoBehaviour:
   _itemWeight: 0
   sumWeight: 0
   _weightDetectionArea: {fileID: 6048547339846796639}
-  _weightList: []
+  _weightObjList: []
   resetFlag: 0
 --- !u!23 &4403500400901847997
 MeshRenderer:
@@ -1651,7 +1651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab40f4fe6cc04904aa8423d9f7cf74ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angleController: {fileID: 0}
+  targetTag: Weight
+  triggerStayThreshold: 15
 --- !u!33 &4606278356745030158
 MeshFilter:
   m_ObjectHideFlags: 0
