@@ -22,28 +22,6 @@ public class TriggerStayMonitor : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        // Debug.Log(other.gameObject);
-        // if (stopMonitoring)
-        // {
-        //     return; // 監視停止フラグが立っている場合は何もしない
-        // }
-
-        // if (!isMonitoring && other.CompareTag(targetTag))
-        // {
-        //     // 監視開始
-        //     isMonitoring = true;
-        //     lastTriggerStayTime = Time.time;
-        //     // 合計重量リストに入っていなかったら追加
-        //     angleController.TryAddWeight(other.gameObject);
-        //     Debug.Log(other.gameObject);
-
-        //     StartCoroutine(MonitorTriggerStay());
-        // }
-        // else if (isMonitoring)
-        // {
-        //     // OnTriggerStayが呼び出されたら最終呼び出し時間を更新
-        //     lastTriggerStayTime = Time.time;
-        // }
         if (stopMonitoring)
         {
             return; // 監視停止フラグが立っている場合は何もしない
@@ -68,20 +46,6 @@ public class TriggerStayMonitor : MonoBehaviour
 
     }
 
-    // private IEnumerator MonitorTriggerStay()
-    // {
-    //     while (isMonitoring && !stopMonitoring)
-    //     {
-    //         yield return null;
-
-    //         if (Time.time - lastTriggerStayTime > triggerStayThreshold)
-    //         {
-    //             // しきい値を超えてOnTriggerStayが呼び出されていない場合、イベントを発行し、以降の監視を停止f
-    //             OnTriggerStayNotCalled?.Invoke();
-    //             stopMonitoring = true;
-    //         }
-    //     }
-    // }
     private IEnumerator MonitorTriggerStay(GameObject obj)
     {
         while (monitoredObjects.ContainsKey(obj) && !stopMonitoring)

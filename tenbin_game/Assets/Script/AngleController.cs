@@ -93,8 +93,6 @@ public class AngleController : MonoBehaviour
 			_angle = roundedNumber * MAX_ANGLE - MAX_ANGLE;
 			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2);
 		}
-		//Debug.Log(roundedNumber);
-		//Debug.Log(_angle);
 	}
 
 	// TODO DOTweenによる値の変更
@@ -131,16 +129,4 @@ public class AngleController : MonoBehaviour
 		_weightInfoMap.Remove(other);
 		// TODO ChangeAngle 角度を変える
 	}
-
-	/*
-	// オブジェクトBの情報を利用する
-    public void UseObjectBInfo(ObjectB objectB)
-    {
-        if (objectBInfoMap.ContainsKey(objectB))
-        {
-            int info = objectBInfoMap[objectB];
-            Debug.Log("Info from B: " + info);
-        }
-    }
-	*/
 }
