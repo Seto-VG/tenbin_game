@@ -7,8 +7,6 @@ public class TriggerStayMonitor : MonoBehaviour
     public string targetTag = "Weight"; // 監視対象のタグ
     public float triggerStayThreshold = 15f; // OnTriggerStayが呼び出されていないとみなすしきい値（秒）
 
-    // private float lastTriggerStayTime; // 最後にOnTriggerStayが呼び出された時間
-    // private bool isMonitoring = false; // 監視中かどうかのフラグ
     private Dictionary<GameObject, float> monitoredObjects = new Dictionary<GameObject, float>(); // 監視中のオブジェクトと最終呼び出し時間
     private bool stopMonitoring = false; // 監視を停止するかどうかのフラグ
 
