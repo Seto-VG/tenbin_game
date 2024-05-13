@@ -357,7 +357,7 @@ Transform:
   m_GameObject: {fileID: 5826772109083313179}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.465, y: -3, z: -1}
+  m_LocalPosition: {x: -1.465, y: -3, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -445,7 +445,7 @@ Transform:
   m_GameObject: {fileID: 1557666838946033909}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.71000004, y: -3, z: -1}
+  m_LocalPosition: {x: -0.71000004, y: -3, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 5861772559531871489}
   - component: {fileID: 8590604797708061506}
   - component: {fileID: 3334158196034652651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: weightFallAreaR
   m_TagString: WeightFallArea
   m_Icon: {fileID: 0}
@@ -661,7 +661,7 @@ Transform:
   m_GameObject: {fileID: 1565771193888024223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.3299999, y: -3, z: -1}
+  m_LocalPosition: {x: 1.3299999, y: -3, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1309,7 +1309,7 @@ Transform:
   m_GameObject: {fileID: 3660563454963454034}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.75, y: -3, z: -1}
+  m_LocalPosition: {x: 2.75, y: -3, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1495,7 +1495,7 @@ Transform:
   m_GameObject: {fileID: 408201745599384570}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.9999999, y: -3, z: -1}
+  m_LocalPosition: {x: 1.9999999, y: -3, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1531,7 +1531,7 @@ MonoBehaviour:
   _TrLeft: {fileID: 7292675602802706506}
   _TrRight: {fileID: 5665749419068259455}
   _angle: -25
-  _itemWeight: 0
+  _itemWeight: 78
   sumWeight: 0
   _weightDetectionArea: {fileID: 6048547339846796639}
   _weightObjList: []
@@ -1633,7 +1633,7 @@ Transform:
   m_GameObject: {fileID: 489664204318185024}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.65, y: -3, z: -1}
+  m_LocalPosition: {x: 0.65, y: -3, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1683,7 +1683,7 @@ GameObject:
   - component: {fileID: 6048547339846796639}
   - component: {fileID: 6735662181666871997}
   - component: {fileID: 4564856554731465409}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: weightDetectionArea
   m_TagString: WeightFallArea
   m_Icon: {fileID: 0}
@@ -1756,7 +1756,7 @@ Transform:
   m_GameObject: {fileID: 1993785534035851476}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.03000009, y: -3, z: -1}
+  m_LocalPosition: {x: -0.03000009, y: -3, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2840,7 +2840,7 @@ Transform:
   m_GameObject: {fileID: 6383209299832467847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.2, y: -3, z: -1}
+  m_LocalPosition: {x: -2.2, y: -3, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2925,7 +2925,7 @@ GameObject:
   - component: {fileID: 4673281912632680422}
   - component: {fileID: 7931834883619268101}
   - component: {fileID: 212727257807110614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dish_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
