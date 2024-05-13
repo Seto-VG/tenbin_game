@@ -29,7 +29,8 @@ public class AngleController : MonoBehaviour
 	private void Start()
 	{
 		_angle3 = Vector3.zero;
-		_angle = -25;
+		//_angle = -25;
+		DOTween.To(() => 0, (x) => _angle = x, _angle, 2);
 	}
 
 	private void Update()
@@ -93,12 +94,6 @@ public class AngleController : MonoBehaviour
 			_angle = roundedNumber * MAX_ANGLE - MAX_ANGLE;
 			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2);
 		}
-	}
-
-	// TODO DOTweenによる値の変更
-	public void ChangeValueWithDOTween(float value)
-	{
-		
 	}
 
 	// 重りの登録

@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _TrLeft: {fileID: 7292675602802706506}
   _TrRight: {fileID: 5665749419068259455}
-  _angle: -25
+  _angle: 0
   _itemWeight: 78
   sumWeight: 0
   _weightDetectionArea: {fileID: 6048547339846796639}
