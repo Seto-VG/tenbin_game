@@ -1,10 +1,6 @@
-
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using DG.Tweening;
 
 public class AngleController : MonoBehaviour
 {
@@ -14,7 +10,7 @@ public class AngleController : MonoBehaviour
 	Transform _TrRight;
 
 	[SerializeField]
-	float _angle = -25f; // 角度初期値：-25度
+	float _angle; // 角度初期値：-25度
 	Vector3 _angle3;
 	float MAX_ANGLE = 25f; // 左最大傾き角度：-25度	右最大傾き角度：25度
 
@@ -33,6 +29,7 @@ public class AngleController : MonoBehaviour
 	private void Start()
 	{
 		_angle3 = Vector3.zero;
+		_angle = -25;
 	}
 
 	private void Update()
@@ -54,7 +51,6 @@ public class AngleController : MonoBehaviour
 			_angle = -MAX_ANGLE;
 		}
 
-		ChangeAngle();
 		if (resetFlag)
 		{
 			resetFlag = false;
@@ -65,7 +61,15 @@ public class AngleController : MonoBehaviour
 	// 角度の変更
 	public void ChangeAngle()
 	{
+		_angle3.z = _angle;
+		transform.localEulerAngles = _angle3;
+		_angle3.z = -_angle3.z;
+		_TrLeft.localEulerAngles = _angle3;
+		_TrRight.localEulerAngles = _angle3;
+
 		if (sumWeight == 0) return;
+
+		float _beforeAngle = _angle;
 		// 割合の小数第三位は偶数丸めを使用
 		float roundedNumber = Mathf.Round(sumWeight / _itemWeight * 100f) / 100f; // 割合 小数第三位まで四捨五入
 		if (Mathf.Abs(roundedNumber * 100f - Mathf.Floor(roundedNumber * 100f) * 100f) == 0.5f) // 小数第三位が0.5の場合
@@ -81,32 +85,23 @@ public class AngleController : MonoBehaviour
 		{
 			roundedNumber -= 1;
 			_angle = roundedNumber * MAX_ANGLE;
+			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2);
 		}
 		// (sum < item) Angle = 割合 x 25 - 25
 		else
 		{
 			_angle = roundedNumber * MAX_ANGLE - MAX_ANGLE;
+			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2);
 		}
-		Debug.Log(roundedNumber);
-		Debug.Log(_angle);
+		//Debug.Log(roundedNumber);
+		//Debug.Log(_angle);
 	}
 
-	// TODO DOTweenによる角度の変更
-	// public void ChangeAngleWithDOTween()
-	// {
-	// 	if (sumWeight == 0) return;
-	// 	float ratio = sumWeight / _itemWeight;
-	// 	if (sumWeight >= _itemWeight)
-	// 	{
-	// 		ratio -= 1;
-	// 		_angle = ratio * MAX_ANGLE;
-	// 	}
-	// 	else
-	// 	{
-	// 		_angle = ratio * MAX_ANGLE - MAX_ANGLE;
-	// 		Debug.Log(_angle);
-	// 	}
-	// }
+	// TODO DOTweenによる値の変更
+	public void ChangeValueWithDOTween(float value)
+	{
+		
+	}
 
 	// 重りの登録
 	public void RegisterWeights(GameObject other, float weight)
@@ -125,6 +120,7 @@ public class AngleController : MonoBehaviour
 		if (!_weightObjList.Contains(other))
 		{
 			sumWeight += _weightInfoMap[other];
+			ChangeAngle();
 		}
 	}
 
