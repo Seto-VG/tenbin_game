@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,13 +12,21 @@ public class WeightController : MonoBehaviour
     [SerializeField]
     private Collider _weightFallAreaR; // 判定したいコライダー
     [SerializeField]
-    public float weight;
+    private float weight;
+    AngleController angleController;
 
     // Start is called before the first frame update
     void Start()
     {
         _weightRb = gameObject.GetComponent<Rigidbody>();
         _initialPosition = this.transform.position;
+
+        angleController = GameObject.Find("Circle_1").GetComponent<AngleController>();
+        if (angleController != null)
+        {
+            // リストに自身を登録
+            angleController.RegisterWeights(this.GameObject(), weight);
+        }
     }
 
     // Update is called once per frame
@@ -30,7 +36,7 @@ public class WeightController : MonoBehaviour
         {
             _weightRb.isKinematic = false;
         }
-        else if(!_isFall)
+        else if (!_isFall)
         {
             _weightRb.isKinematic = true;
         }
@@ -61,7 +67,7 @@ public class WeightController : MonoBehaviour
                colliderBounds.Contains(new Vector3(objectBounds.max.x, objectBounds.min.y, objectBounds.max.z)) &&
                colliderBounds.Contains(new Vector3(objectBounds.max.x, objectBounds.max.y, objectBounds.min.z));
     }
-    
+
     void OnMouseDrag()
     {
         WeightDrag(); // ドラッグで動かす
@@ -80,4 +86,21 @@ public class WeightController : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        TriggerStayMonitor.OnTriggerStayNotCalled += HandleTriggerStayNotCalled;
+    }
+
+    private void OnDisable()
+    {
+        TriggerStayMonitor.OnTriggerStayNotCalled -= HandleTriggerStayNotCalled;
+    }
+
+    // イベントが発行されたときこの処理をする
+    private void HandleTriggerStayNotCalled()
+    {
+        // 監視を終了 登録の解除申請 合計重量からこの重りの重量を削除
+        angleController.RequestUnregisterWeights(gameObject);
+        Debug.Log("OnTriggerStay is not being called!");
+    }
 }
