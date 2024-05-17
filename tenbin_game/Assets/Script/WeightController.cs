@@ -86,21 +86,21 @@ public class WeightController : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        TriggerStayMonitor.OnTriggerStayNotCalled += HandleTriggerStayNotCalled;
-    }
+    // private void OnEnable()
+    // {
+    //     TriggerStayMonitor.OnTriggerStayNotCalled += HandleTriggerStayNotCalled;
+    // }
 
-    private void OnDisable()
-    {
-        TriggerStayMonitor.OnTriggerStayNotCalled -= HandleTriggerStayNotCalled;
-    }
+    // private void OnDisable()
+    // {
+    //     TriggerStayMonitor.OnTriggerStayNotCalled -= HandleTriggerStayNotCalled;
+    // }
 
-    // イベントが発行されたときこの処理をする
-    private void HandleTriggerStayNotCalled()
-    {
-        // 監視を終了 登録の解除申請 合計重量からこの重りの重量を削除
-        angleController.RequestUnregisterWeights(gameObject);
-        Debug.Log("OnTriggerStay is not being called!");
-    }
+    // // イベントが発行されたときこの処理をする
+    // private void HandleTriggerStayNotCalled()
+    // {
+    //     // 監視を終了 登録の解除申請 合計重量からこの重りの重量を削除
+    //     angleController.RequestUnregisterWeights(gameObject);
+    //     Debug.Log("OnTriggerStay is not being called!");
+    // }
 }

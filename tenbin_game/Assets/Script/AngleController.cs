@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System.Linq;
 
 public class AngleController : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class AngleController : MonoBehaviour
 	private void Start()
 	{
 		_angle3 = Vector3.zero;
-		//_angle = -25;
+		_angle = -25;
 		DOTween.To(() => 0, (x) => _angle = x, _angle, 2);
 	}
 
@@ -42,20 +43,28 @@ public class AngleController : MonoBehaviour
 		_TrLeft.localEulerAngles = _angle3;
 		_TrRight.localEulerAngles = _angle3;
 
-		// 角度の限界値を設定
-		if (_angle > MAX_ANGLE)
+		// 角度の判定
+		if (-2.5f <= _angle && _angle <= 2.5f)
 		{
-			_angle = MAX_ANGLE;
+			if (-1.25f < _angle && _angle < 1.25f) // もし角度が0度から5%以内だった場合
+			{
+				// Excellent			
+			}
+			else // もし角度が0度から10%以内だった場合
+			{
+				// GameClear
+			}
 		}
-		if (_angle < -MAX_ANGLE)
+		else if (2.5f < _angle) // もし角度が0度から+10%より大きくなったら
 		{
-			_angle = -MAX_ANGLE;
+			// GameOver
 		}
 
+		// リセット デバッグ用 要削除
 		if (resetFlag)
 		{
 			resetFlag = false;
-			sumWeight = -25;
+			_angle = -25;
 		}
 	}
 
@@ -86,12 +95,21 @@ public class AngleController : MonoBehaviour
 		{
 			roundedNumber -= 1;
 			_angle = roundedNumber * MAX_ANGLE;
+			// 角度の限界値を設定
+			if (_angle > MAX_ANGLE)
+			{
+				_angle = MAX_ANGLE;
+			}
 			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2);
 		}
 		// (sum < item) Angle = 割合 x 25 - 25
 		else
 		{
 			_angle = roundedNumber * MAX_ANGLE - MAX_ANGLE;
+			if (_angle < -MAX_ANGLE)
+			{
+				_angle = -MAX_ANGLE;
+			}
 			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2);
 		}
 	}
@@ -112,16 +130,24 @@ public class AngleController : MonoBehaviour
 	{
 		if (!_weightObjList.Contains(other))
 		{
+			_weightObjList.Add(other);
 			sumWeight += _weightInfoMap[other];
 			ChangeAngle();
+			Debug.Log("リストに追加＆角度変更");
 		}
 	}
 
 	// 重りの登録解除と重量削除
 	public void RequestUnregisterWeights(GameObject other)
 	{
-		// オブジェクトBとその情報をマップから削除する
-		_weightInfoMap.Remove(other);
-		// TODO ChangeAngle 角度を変える
+		if (_weightObjList.Contains(other))
+		{
+			// 合計リストからゲームオブジェクトを削除＆合計重量から重量を引く
+			_weightObjList.Remove(other);
+			sumWeight -= _weightInfoMap[other];
+			Debug.Log(sumWeight);
+			_weightInfoMap.Remove(other);
+			ChangeAngle();
+		}
 	}
 }
