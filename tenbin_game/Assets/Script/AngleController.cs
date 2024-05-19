@@ -77,8 +77,6 @@ public class AngleController : MonoBehaviour
 		_TrLeft.localEulerAngles = _angle3;
 		_TrRight.localEulerAngles = _angle3;
 
-		if (sumWeight == 0) return;
-
 		float _beforeAngle = _angle;
 		// 割合の小数第三位は偶数丸めを使用
 		float roundedNumber = Mathf.Round(sumWeight / _itemWeight * 100f) / 100f; // 割合 小数第三位まで四捨五入

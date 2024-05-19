@@ -418,7 +418,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 104
   m_CollisionDetection: 0
 --- !u!4 &302095968609924224
 Transform:
@@ -481,8 +481,8 @@ Transform:
   m_GameObject: {fileID: 587194096174076636}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.00024390034, y: -0.02130431, z: 0.07096329}
-  m_LocalScale: {x: 0.03597392, y: 0.026375707, z: 0.16223906}
+  m_LocalPosition: {x: -0.00024390034, y: -0.017177, z: 0.07096329}
+  m_LocalScale: {x: 0.03597392, y: 0.03462985, z: 0.16223906}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5665749419068259455}
@@ -1324,7 +1324,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 56
+  m_Constraints: 104
   m_CollisionDetection: 0
 --- !u!1 &3638019849735327808
 GameObject:
@@ -1390,7 +1390,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 104
   m_CollisionDetection: 0
 --- !u!4 &4043000911572912427
 Transform:
@@ -1558,7 +1558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Weight
-  triggerStayThreshold: 15
 --- !u!33 &4606278356745030158
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2337,7 +2336,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 104
   m_CollisionDetection: 0
 --- !u!23 &6775372107596298117
 MeshRenderer:
@@ -2416,7 +2415,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 104
   m_CollisionDetection: 0
 --- !u!23 &6942293461959567059
 MeshRenderer:
@@ -2633,7 +2632,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 56
+  m_Constraints: 104
   m_CollisionDetection: 0
 --- !u!23 &7418082526006894910
 MeshRenderer:
@@ -2942,7 +2941,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 104
   m_CollisionDetection: 0
 --- !u!114 &8450240532851882374
 MonoBehaviour:
@@ -3022,7 +3021,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 104
   m_CollisionDetection: 0
 --- !u!23 &8590604797708061506
 MeshRenderer:
