@@ -56,6 +56,7 @@ public class AngleController : MonoBehaviour
 				// Great
 				GameManager.instance.OnCompleteStage("Great");
 			}
+			// TODO 表情の変化
 		}
 		else if (2.5f < _angle) // もし角度が0度から+10%より大きくなったら
 		{
