@@ -7,7 +7,7 @@ using DG.Tweening;
 public class GameManager : SingletonBehavior<GameManager>
 {
     bool _isInitialized = false;
-    bool _isCompleteStage = false;
+    bool _isFinishedStage = false;
     bool _nextSceneFlag = false;
     // Start is called before the first frame update
     void Start()
@@ -29,14 +29,12 @@ public class GameManager : SingletonBehavior<GameManager>
     public bool IsInitialized() { return _isInitialized; }
 
     // ステージクリア判定
-    public bool IsCompleteStage() { return _isCompleteStage; }
+    public bool IsFinishedStage() { return _isFinishedStage; }
 
     // ステージクリア
     public void OnCompleteStage(string whichComplete)
     {
-        if (_isCompleteStage) { return; }
-        _isCompleteStage = true;
-
+        _isFinishedStage = true;
         // FXManager.instance.PlayFireworks(); // TODO ゲームクリア後のエフェクト再生
         // Excellentだった場合
         if (whichComplete == "Excellent")
@@ -67,7 +65,7 @@ public class GameManager : SingletonBehavior<GameManager>
     // ゲームオーバー
     public void OnGameOver()
     {
-        
+        _isFinishedStage = true;
     }
 
     // 初期化

@@ -70,6 +70,9 @@ public class WeightController : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (GameManager.instance.IsFinishedStage())
+            return;
+
         WeightDrag(); // ドラッグで動かす
     }
 
