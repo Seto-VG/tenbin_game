@@ -43,7 +43,7 @@ public class GameManager : SingletonBehavior<GameManager>
         {
             if (StageManager.instance.IsLastStage())
             {
-                // クリア画面へ遷移
+                // 最後のステージクリア後セレクト画面へ
                 SceneManager.LoadScene("StageSelectScene");
                 return;
             }

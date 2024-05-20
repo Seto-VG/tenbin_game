@@ -1372,8 +1372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stagePrefabs:
-  - {fileID: 4201246914198219280, guid: 6970e972fbf21bf468729460fc763851, type: 3}
-  - {fileID: 4201246914198219280, guid: 6970e972fbf21bf468729460fc763851, type: 3}
+  - {fileID: 2756880047004185766, guid: 7a5f44c3f3258194094ca8028ea5f05c, type: 3}
 --- !u!4 &2145171827
 Transform:
   m_ObjectHideFlags: 0
