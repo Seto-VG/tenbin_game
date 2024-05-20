@@ -32,12 +32,22 @@ public class GameManager : SingletonBehavior<GameManager>
     public bool IsCompleteStage() { return _isCompleteStage; }
 
     // ステージクリア
-    public void OnCompleteStage()
+    public void OnCompleteStage(string whichComplete)
     {
         if (_isCompleteStage) { return; }
         _isCompleteStage = true;
 
         // FXManager.instance.PlayFireworks(); // TODO ゲームクリア後のエフェクト再生
+        // Excellentだった場合
+        if (whichComplete == "Excellent")
+        {
+
+        }
+        // Greatだった場合
+        if (whichComplete == "Great")
+        {
+            
+        }
 
         DOVirtual.DelayedCall(3.0f, () =>
         {
@@ -52,6 +62,12 @@ public class GameManager : SingletonBehavior<GameManager>
                 _nextSceneFlag = true;
             }
         });
+    }
+
+    // ゲームオーバー
+    public void OnGameOver()
+    {
+        
     }
 
     // 初期化

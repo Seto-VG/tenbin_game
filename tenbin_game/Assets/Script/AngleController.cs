@@ -48,16 +48,19 @@ public class AngleController : MonoBehaviour
 		{
 			if (-1.25f < _angle && _angle < 1.25f) // もし角度が0度から5%以内だった場合
 			{
-				// Excellent			
+				// Excellent
+				GameManager.instance.OnCompleteStage("Excellent");
 			}
 			else // もし角度が0度から10%以内だった場合
 			{
-				// GameClear
+				// Great
+				GameManager.instance.OnCompleteStage("Great");
 			}
 		}
 		else if (2.5f < _angle) // もし角度が0度から+10%より大きくなったら
 		{
-			// GameOver
+			// Failed
+			GameManager.instance.OnGameOver();
 		}
 
 		// リセット デバッグ用 要削除
