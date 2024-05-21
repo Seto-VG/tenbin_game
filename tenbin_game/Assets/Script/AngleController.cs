@@ -69,6 +69,7 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 			completionStatus = "Failed";
 			GameManager.instance.OnFinishedStage(completionStatus);
 		}
+		
 		if (_weightObjList.Count == _weightInfoMap.Count) // もし重りを使い切った場合
 		{
 			// 推測強制終了
@@ -155,5 +156,10 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 			_weightInfoMap.Remove(other);
 			ChangeAngle();
 		}
+	}
+
+	public void SetFinish()
+	{
+		GameManager.instance.SetFinish();
 	}
 }

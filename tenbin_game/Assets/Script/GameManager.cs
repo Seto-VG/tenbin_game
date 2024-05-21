@@ -73,4 +73,9 @@ public class GameManager : SingletonBehavior<GameManager>
         StageManager.instance.CreateCurrentStage();
         _isInitialized = true;
     }
+
+    public void SetFinish()
+    {
+        _isFinishedStage = true;
+    }
 }
