@@ -15,7 +15,7 @@ public class AngleController : MonoBehaviour
 	Vector3 _angle3;
 	float MAX_ANGLE = 25f; // 左最大傾き角度：-25度	右最大傾き角度：25度
 
-	string completionStatus;
+	string completionStatus = "Failed";
 	[SerializeField]
 	float _itemWeight; // 課題物の重さ
 	public float sumWeight; // 重りの合計の重さ
@@ -44,28 +44,35 @@ public class AngleController : MonoBehaviour
 		// 角度の判定
 		if (-2.5f <= _angle && _angle <= 2.5f)
 		{
-			// TODO 推測終了ボタン表示
-			if (-1.25f < _angle && _angle < 1.25f) // もし角度が0度から5%以内だった場合
+			// 推測終了ボタン表示
+			// TODO ボタンのデザイン
+			completionStatus = "Great";
+
+			// もし角度が0度から±5%以内だった場合
+			if (-1.25f < _angle && _angle < 1.25f) 
 			{
 				// Excellent
-				GameManager.instance.OnFinishedStage("Excellent");
+				completionStatus = "Excellent";
+				GameManager.instance.OnFinishedStage(completionStatus);
 			}
-			else // もし角度が0度から10%以内だった場合
+			// もし角度が0度から±10%以内だった場合
+			else if (GameManager.instance.IsFinishedStage()) // 推測終了ボタンが押されたら
 			{
 				// Great
-				GameManager.instance.OnFinishedStage("Great");
+				// TODO 表情の変化
+				GameManager.instance.OnFinishedStage(completionStatus);
 			}
-			// TODO 表情の変化
 		}
 		else if (2.5f < _angle) // もし角度が0度から+10%より大きくなった場合
 		{
 			// Failed
-			GameManager.instance.OnFinishedStage("Failed");
+			completionStatus = "Failed";
+			GameManager.instance.OnFinishedStage(completionStatus);
 		}
-
-		if (_weightObjList.Count == _weightInfoMap.Count) // もし乗せられる重りがなくなった場合
+		if (_weightObjList.Count == _weightInfoMap.Count) // もし重りを使い切った場合
 		{
 			// 推測強制終了
+			GameManager.instance.OnFinishedStage(completionStatus);
 		}
 	}
 

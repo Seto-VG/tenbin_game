@@ -34,7 +34,6 @@ public class GameManager : SingletonBehavior<GameManager>
     // ステージクリア
     public void OnFinishedStage(string whichComplete)
     {
-        _isFinishedStage = true;
         // FXManager.instance.PlayFireworks(); // TODO ゲームクリア後のエフェクト再生
         // Excellentだった場合
         if (whichComplete == "Excellent")
