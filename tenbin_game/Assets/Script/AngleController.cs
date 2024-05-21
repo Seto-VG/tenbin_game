@@ -23,9 +23,6 @@ public class AngleController : MonoBehaviour
 	[SerializeField]
 	private List<GameObject> _weightObjList;
 	public Dictionary<GameObject, float> _weightInfoMap = new Dictionary<GameObject, float>(); // 重りとその重量のマップ
-	[Header("ONにするとsumWeightがリセットされる(デバッグ用)")]
-	[SerializeField]
-	bool resetFlag = false;
 
 	private void Start()
 	{
@@ -46,6 +43,7 @@ public class AngleController : MonoBehaviour
 		// 角度の判定
 		if (-2.5f <= _angle && _angle <= 2.5f)
 		{
+			// TODO 推測終了ボタン表示
 			if (-1.25f < _angle && _angle < 1.25f) // もし角度が0度から5%以内だった場合
 			{
 				// Excellent
@@ -62,13 +60,6 @@ public class AngleController : MonoBehaviour
 		{
 			// Failed
 			GameManager.instance.OnGameOver();
-		}
-
-		// リセット デバッグ用 要削除
-		if (resetFlag)
-		{
-			resetFlag = false;
-			_angle = -25;
 		}
 	}
 
