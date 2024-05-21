@@ -3,7 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Linq;
 
-public class AngleController : MonoBehaviour
+public class AngleController : SingletonBehavior<MonoBehaviour>
 {
 	[SerializeField]
 	Transform _TrLeft;
