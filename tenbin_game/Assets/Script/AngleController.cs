@@ -15,6 +15,7 @@ public class AngleController : MonoBehaviour
 	Vector3 _angle3;
 	float MAX_ANGLE = 25f; // 左最大傾き角度：-25度	右最大傾き角度：25度
 
+	string completionStatus;
 	[SerializeField]
 	float _itemWeight; // 課題物の重さ
 	public float sumWeight; // 重りの合計の重さ
@@ -47,19 +48,24 @@ public class AngleController : MonoBehaviour
 			if (-1.25f < _angle && _angle < 1.25f) // もし角度が0度から5%以内だった場合
 			{
 				// Excellent
-				GameManager.instance.OnCompleteStage("Excellent");
+				GameManager.instance.OnFinishedStage("Excellent");
 			}
 			else // もし角度が0度から10%以内だった場合
 			{
 				// Great
-				GameManager.instance.OnCompleteStage("Great");
+				GameManager.instance.OnFinishedStage("Great");
 			}
 			// TODO 表情の変化
 		}
-		else if (2.5f < _angle) // もし角度が0度から+10%より大きくなったら
+		else if (2.5f < _angle) // もし角度が0度から+10%より大きくなった場合
 		{
 			// Failed
-			GameManager.instance.OnGameOver();
+			GameManager.instance.OnFinishedStage("Failed");
+		}
+
+		if (_weightObjList.Count == _weightInfoMap.Count) // もし乗せられる重りがなくなった場合
+		{
+			// 推測強制終了
 		}
 	}
 
@@ -136,7 +142,7 @@ public class AngleController : MonoBehaviour
 		if (_weightObjList.Contains(other))
 		{
 			// 合計リストからゲームオブジェクトを削除＆合計重量から重量を引く
-			_weightObjList.Remove(other);
+			//_weightObjList.Remove(other);
 			sumWeight -= _weightInfoMap[other];
 			Debug.Log(sumWeight);
 			_weightInfoMap.Remove(other);

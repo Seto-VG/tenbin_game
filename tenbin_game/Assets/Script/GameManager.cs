@@ -32,7 +32,7 @@ public class GameManager : SingletonBehavior<GameManager>
     public bool IsFinishedStage() { return _isFinishedStage; }
 
     // ステージクリア
-    public void OnCompleteStage(string whichComplete)
+    public void OnFinishedStage(string whichComplete)
     {
         _isFinishedStage = true;
         // FXManager.instance.PlayFireworks(); // TODO ゲームクリア後のエフェクト再生
@@ -43,6 +43,11 @@ public class GameManager : SingletonBehavior<GameManager>
         }
         // Greatだった場合
         if (whichComplete == "Great")
+        {
+            
+        }
+        // Failedだった場合
+        if (whichComplete == "Failed")
         {
             
         }
@@ -60,12 +65,6 @@ public class GameManager : SingletonBehavior<GameManager>
                 _nextSceneFlag = true;
             }
         });
-    }
-
-    // ゲームオーバー
-    public void OnGameOver()
-    {
-        _isFinishedStage = true;
     }
 
     // 初期化
