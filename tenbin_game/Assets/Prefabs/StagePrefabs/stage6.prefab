@@ -56,7 +56,6 @@ MonoBehaviour:
   sumWeight: 0
   _weightDetectionArea: {fileID: 4671995491864368891}
   _weightObjList: []
-  resetFlag: 0
 --- !u!1 &421473775397792805
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam: {fileID: 0}
   _isFall: 0
-  _weightFallAreaR: {fileID: 0}
+  _weightFallAreaR: {fileID: 2969200272154782082}
   weight: 60
 --- !u!33 &504132198572854970
 MeshFilter:
@@ -1534,7 +1533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam: {fileID: 0}
   _isFall: 0
-  _weightFallAreaR: {fileID: 0}
+  _weightFallAreaR: {fileID: 2969200272154782082}
   weight: 50
 --- !u!33 &3408452182558265658
 MeshFilter:
@@ -1835,7 +1834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam: {fileID: 0}
   _isFall: 0
-  _weightFallAreaR: {fileID: 0}
+  _weightFallAreaR: {fileID: 2969200272154782082}
   weight: 80
 --- !u!33 &4059269841446430475
 MeshFilter:
@@ -2856,7 +2855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam: {fileID: 0}
   _isFall: 0
-  _weightFallAreaR: {fileID: 0}
+  _weightFallAreaR: {fileID: 2969200272154782082}
   weight: 100
 --- !u!33 &1225988384454205274
 MeshFilter:

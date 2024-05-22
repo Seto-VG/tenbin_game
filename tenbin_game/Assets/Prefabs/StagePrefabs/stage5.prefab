@@ -2140,7 +2140,6 @@ MonoBehaviour:
   sumWeight: 0
   _weightDetectionArea: {fileID: 586372899028570761}
   _weightObjList: []
-  resetFlag: 0
 --- !u!1 &6595982813251763112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2958,7 +2957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam: {fileID: 0}
   _isFall: 0
-  _weightFallAreaR: {fileID: 0}
+  _weightFallAreaR: {fileID: 2700957983045613076}
   weight: 60
 --- !u!33 &7191977410226820230
 MeshFilter:
