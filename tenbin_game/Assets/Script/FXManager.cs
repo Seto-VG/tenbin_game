@@ -7,7 +7,7 @@ public class FXManager : SingletonBehavior<FXManager>
     // ---------- 定数宣言 ----------
     // ---------- ゲームオブジェクト参照変数宣言 ----------
 
-    [SerializeField] private List<Transform> _fireworkPoints = default;
+    [SerializeField] private GameObject confetti;
     // ---------- プレハブ ----------
     // ---------- プロパティ ----------
     // ---------- クラス変数宣言 ----------
@@ -15,12 +15,9 @@ public class FXManager : SingletonBehavior<FXManager>
     // ---------- コンストラクタ・デストラクタ ----------
     // ---------- Unity組込関数 ----------
     // ---------- Public関数 ----------
-    public void PlayFireworks()
+    public void PlayConfetti()
     {
-        foreach (Transform item in _fireworkPoints)
-        {
-            item.gameObject.SetActive(true);
-        }
+        confetti.SetActive(true);
     }
     // ---------- Protected関数 ----------
     // ---------- Private関数 ----------

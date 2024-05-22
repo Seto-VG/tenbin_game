@@ -9,6 +9,8 @@ public class GameManager : SingletonBehavior<GameManager>
     bool _isInitialized = false;
     bool _isFinishedStage = false;
     bool _nextSceneFlag = false;
+    bool _isCompleatLastStage = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +26,15 @@ public class GameManager : SingletonBehavior<GameManager>
             StageManager.instance.SetNextStage();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        else if(Input.GetMouseButtonDown(0) && _isCompleatLastStage)
+        {
+            // 最後のステージクリア後セレクト画面へ
+            SceneManager.LoadScene("StageSelectScene");
+            return;
+        }
     }
 
+    // 初期化判定
     public bool IsInitialized() { return _isInitialized; }
 
     // ステージクリア判定
@@ -39,30 +48,32 @@ public class GameManager : SingletonBehavior<GameManager>
         // Excellentだった場合
         if (whichComplete == "Excellent")
         {
-
+            UIManager.instance.ActiveExcellentText();
+            FXManager.instance.PlayConfetti();
         }
         // Greatだった場合
         if (whichComplete == "Great")
         {
-            
+            UIManager.instance.ActiveGreatText();
+            FXManager.instance.PlayConfetti();
         }
         // Failedだった場合
         if (whichComplete == "Failed")
         {
-            
+            UIManager.instance.ActiveFailedText();
         }
 
-        DOVirtual.DelayedCall(3.0f, () =>
+        DOVirtual.DelayedCall(2.0f, () =>
         {
             if (StageManager.instance.IsLastStage())
             {
-                // 最後のステージクリア後セレクト画面へ
-                SceneManager.LoadScene("StageSelectScene");
-                return;
+                _isCompleatLastStage = true;
+                UIManager.instance.ActiveReturnSelectStageText();
             }
             else
             {
                 _nextSceneFlag = true;
+                UIManager.instance.ActiveNextStageText();
             }
         });
     }
@@ -73,5 +84,6 @@ public class GameManager : SingletonBehavior<GameManager>
         if (_isInitialized) { return; }
         StageManager.instance.CreateCurrentStage();
         _isInitialized = true;
+        _nextSceneFlag = false;
     }
 }
