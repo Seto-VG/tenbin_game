@@ -70,8 +70,8 @@ public class WeightController : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if (GameManager.instance.IsFinishedStage())
-            return;
+        if (GameManager.instance.IsFinishedStage() || !angleController.IsReady())
+        {return;} 
 
         WeightDrag(); // ドラッグで動かす
     }
