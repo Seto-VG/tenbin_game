@@ -366,7 +366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5565218086650347957
 Transform:
   m_ObjectHideFlags: 0
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam: {fileID: 0}
   _isFall: 0
-  _weightFallAreaR: {fileID: 0}
+  _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 80
 --- !u!33 &4113122606293867481
 MeshFilter:
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam: {fileID: 0}
   _isFall: 0
-  _weightFallAreaR: {fileID: 0}
+  _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 60
 --- !u!33 &1937415277155079941
 MeshFilter:
@@ -1466,7 +1466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam: {fileID: 0}
   _isFall: 0
-  _weightFallAreaR: {fileID: 0}
+  _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 100
 --- !u!33 &5572181763989586942
 MeshFilter:
@@ -2450,7 +2450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam: {fileID: 0}
   _isFall: 0
-  _weightFallAreaR: {fileID: 0}
+  _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 50
 --- !u!33 &5354605017824480224
 MeshFilter:

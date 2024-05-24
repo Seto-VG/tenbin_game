@@ -2305,7 +2305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cam: {fileID: 0}
   _isFall: 0
-  _weightFallAreaR: {fileID: 0}
+  _weightFallAreaR: {fileID: 3033999545190527513}
   weight: 50
 --- !u!33 &976880980312710414
 MeshFilter:
