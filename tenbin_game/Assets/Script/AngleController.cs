@@ -15,6 +15,7 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 	Vector3 _angle3;
 	float MAX_ANGLE = 25f; // 左最大傾き角度：-25度	右最大傾き角度：25度
 
+	bool _IsReady = false;
 	string completionStatus = "Failed";
 	[SerializeField]
 	float _itemWeight; // 課題物の重さ
@@ -30,6 +31,8 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 		_angle3 = Vector3.zero;
 		_angle = -25;
 		DOTween.To(() => 0, (x) => _angle = x, _angle, 2);
+		_IsReady = true;
+		Debug.Log(_IsReady);
 	}
 
 	private void Update()
@@ -40,6 +43,8 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 		_angle3.z = -_angle3.z;
 		_TrLeft.localEulerAngles = _angle3;
 		_TrRight.localEulerAngles = _angle3;
+
+		if (!_IsReady) {return;}
 
 		// 角度の判定
 		if (-2.5f <= _angle && _angle <= 2.5f)
