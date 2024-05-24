@@ -30,9 +30,8 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 	{
 		_angle3 = Vector3.zero;
 		_angle = -25;
-		DOTween.To(() => 0, (x) => _angle = x, _angle, 2);
-		_IsReady = true;
-		Debug.Log(_IsReady);
+		DOTween.To(() => 0, (x) => _angle = x, _angle, 2)
+		.OnStart(DOBeginFunction).OnComplete(DOCompleteFunction);
 	}
 
 	private void Update()
@@ -44,22 +43,23 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 		_TrLeft.localEulerAngles = _angle3;
 		_TrRight.localEulerAngles = _angle3;
 
-		if (!_IsReady) {return;}
+		if (!_IsReady) { return; }
 
-		// 角度の判定
+		#region 角度の判定
 		if (-2.5f <= _angle && _angle <= 2.5f)
 		{
 			// 推測終了ボタン表示
-			// TODO ボタンのデザイン
 			completionStatus = "Great";
 
 			// もし角度が0度から±5%以内だった場合
-			if (-1.25f < _angle && _angle < 1.25f) 
+			if (-1.25f < _angle && _angle < 1.25f)
 			{
 				// Excellent
 				completionStatus = "Excellent";
+				SetFinish();
 				GameManager.instance.OnFinishedStage(completionStatus);
 			}
+
 			// もし角度が0度から±10%以内だった場合
 			else if (GameManager.instance.IsFinishedStage()) // 推測終了ボタンが押されたら
 			{
@@ -68,13 +68,15 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 				GameManager.instance.OnFinishedStage(completionStatus);
 			}
 		}
+
 		else if (2.5f < _angle) // もし角度が0度から+10%より大きくなった場合
 		{
 			// Failed
 			completionStatus = "Failed";
 			GameManager.instance.OnFinishedStage(completionStatus);
 		}
-		
+		#endregion
+
 		if (_weightObjList.Count == _weightInfoMap.Count) // もし重りを使い切った場合
 		{
 			// 推測強制終了
@@ -112,7 +114,8 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 			{
 				_angle = MAX_ANGLE;
 			}
-			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2);
+			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2)
+			.OnStart(DOBeginFunction).OnComplete(DOCompleteFunction);;
 		}
 		// (sum < item) Angle = 割合 x 25 - 25
 		else
@@ -122,7 +125,8 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 			{
 				_angle = -MAX_ANGLE;
 			}
-			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2);
+			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2)
+			.OnStart(DOBeginFunction).OnComplete(DOCompleteFunction);;
 		}
 	}
 
@@ -162,6 +166,18 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 			ChangeAngle();
 		}
 	}
+
+	#region DOTween動作中用の関数群
+	private void DOBeginFunction()
+	{
+		_IsReady = false;
+	}
+	private void DOCompleteFunction()
+	{
+		_IsReady = true;
+	}
+	public bool IsReady() {return _IsReady;}
+	#endregion
 
 	public void SetFinish()
 	{
