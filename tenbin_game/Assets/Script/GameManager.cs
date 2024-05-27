@@ -15,6 +15,7 @@ public class GameManager : SingletonBehavior<GameManager>
     void Start()
     {
         Initialize();
+        StartCoroutine(UIControlCoroutine());
     }
 
     // Update is called once per frame
@@ -43,7 +44,8 @@ public class GameManager : SingletonBehavior<GameManager>
     // ステージクリア
     public void OnFinishedStage(string whichComplete)
     {
-        // FXManager.instance.PlayFireworks(); // TODO ゲームクリア後のエフェクト再生
+        _isFinishedStage = true;
+
         // Excellentだった場合
         if (whichComplete == "Excellent")
         {
@@ -77,6 +79,11 @@ public class GameManager : SingletonBehavior<GameManager>
         });
     }
 
+    public void ReturnSelectStageScene()
+    {
+        SceneManager.LoadScene("StageSelectScene");
+    }
+
     // 初期化
     private void Initialize()
     {
@@ -86,8 +93,21 @@ public class GameManager : SingletonBehavior<GameManager>
         _nextSceneFlag = false;
     }
 
+    IEnumerator UIControlCoroutine()
+    {
+        UIManager.instance.ActiveStageNum();
+
+        yield return new WaitForSeconds(3.0f);
+
+        UIManager.instance.InactiveStageNum();
+        UIManager.instance.ActiveReturnButton();
+    }
+
     public void SetFinish()
     {
         _isFinishedStage = true;
     }
 }
+
+    
+
