@@ -7,7 +7,7 @@ using DG.Tweening;
 public class GameManager : SingletonBehavior<GameManager>
 {
     bool _isInitialized = false;
-    bool _isFinishedStage = false;
+    public bool isFinishedStage = false;
     bool _nextSceneFlag = false;
     bool _isCompleatLastStage = false;
     bool _resetSceneFlag = false;
@@ -44,13 +44,12 @@ public class GameManager : SingletonBehavior<GameManager>
     public bool IsInitialized() { return _isInitialized; }
 
     // ステージクリア判定
-    public bool IsFinishedStage() { return _isFinishedStage; }
+    public bool IsFinishedStage() { return isFinishedStage; }
 
     // ステージクリア
     public void OnFinishedStage(string whichComplete)
     {
-        _isFinishedStage = true;
-
+        if (!isFinishedStage) {return;}
         // Excellentだった場合
         if (whichComplete == "Excellent")
         {
@@ -100,7 +99,7 @@ public class GameManager : SingletonBehavior<GameManager>
         StageManager.instance.CreateCurrentStage();
         _isInitialized = true;
         _nextSceneFlag = false;
-        _isFinishedStage = false;
+        isFinishedStage = false;
         _resetSceneFlag = false;
         UIManager.instance.OffNextStageText();
     }
@@ -117,7 +116,7 @@ public class GameManager : SingletonBehavior<GameManager>
 
     public void SetFinish()
     {
-        _isFinishedStage = true;
+        isFinishedStage = true;
     }
 }
 
