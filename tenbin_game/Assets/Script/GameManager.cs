@@ -10,6 +10,7 @@ public class GameManager : SingletonBehavior<GameManager>
     bool _isFinishedStage = false;
     bool _nextSceneFlag = false;
     bool _isCompleatLastStage = false;
+    bool _resetSceneFlag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,10 @@ public class GameManager : SingletonBehavior<GameManager>
             // 最後のステージクリア後セレクト画面へ
             SceneManager.LoadScene("StageSelectScene");
             return;
+        }
+        else if(_resetSceneFlag)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
@@ -71,10 +76,14 @@ public class GameManager : SingletonBehavior<GameManager>
                 _isCompleatLastStage = true;
                 UIManager.instance.ActiveReturnSelectStageText();
             }
-            else
+            else if (whichComplete != "Failed")
             {
                 _nextSceneFlag = true;
                 UIManager.instance.ActiveNextStageText();
+            }
+            else if (whichComplete == "Failed")
+            {
+                _resetSceneFlag = true;
             }
         });
     }
@@ -91,6 +100,9 @@ public class GameManager : SingletonBehavior<GameManager>
         StageManager.instance.CreateCurrentStage();
         _isInitialized = true;
         _nextSceneFlag = false;
+        _isFinishedStage = false;
+        _resetSceneFlag = false;
+        UIManager.instance.OffNextStageText();
     }
 
     IEnumerator UIControlCoroutine()
@@ -99,7 +111,7 @@ public class GameManager : SingletonBehavior<GameManager>
 
         yield return new WaitForSeconds(3.0f);
 
-        UIManager.instance.InactiveStageNum();
+        UIManager.instance.OffStageNum();
         UIManager.instance.ActiveReturnButton();
     }
 

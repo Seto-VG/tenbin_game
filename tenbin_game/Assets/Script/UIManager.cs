@@ -43,6 +43,11 @@ public class UIManager : SingletonBehavior<UIManager>
         _nextStageText.SetActive(true);
     }
 
+    public void OffNextStageText()
+    {
+        _nextStageText.SetActive(false);
+    }
+
     public void ActiveReturnSelectStageText()
     {
         _returnSelectStageText.SetActive(true);
@@ -58,7 +63,7 @@ public class UIManager : SingletonBehavior<UIManager>
         _stageNumTextList[stageId].SetActive(true);
     }
 
-    public void InactiveStageNum()
+    public void OffStageNum()
     {
         _stageNumberInstance.SetActive(false);
     }

@@ -283,7 +283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &160919936
 RectTransform:
   m_ObjectHideFlags: 0
@@ -644,9 +644,15 @@ MonoBehaviour:
   _failedText: {fileID: 1473822480}
   _nextStageText: {fileID: 1994532505}
   _returnSelectStageText: {fileID: 696311151}
-  _returnButton: {fileID: 0}
-  _stageNumTextList: []
-  canvasTransform: {fileID: 0}
+  _returnButton: {fileID: 160919935}
+  _stageNumTextList:
+  - {fileID: 3506028744858731426, guid: d75e6aa27df310549957a541678d5f7f, type: 3}
+  - {fileID: 5196375399947261830, guid: f76ef406e5c02d542b7fea0c6e6a2c08, type: 3}
+  - {fileID: 9059264172559555412, guid: c51a8a57f32384140994a1aebf783296, type: 3}
+  - {fileID: 7916719830219616456, guid: 39a333bda865ea14fba16343241374ad, type: 3}
+  - {fileID: 7459210071354452301, guid: b9e7961dff171e741ade953d4bc76a73, type: 3}
+  - {fileID: 2255858839316819295, guid: fbc7226c632528248b242f0dc07f3505, type: 3}
+  canvasTransform: {fileID: 2118718208}
 --- !u!4 &636461386
 Transform:
   m_ObjectHideFlags: 0
@@ -1062,7 +1068,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 948105345}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 463504832}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReturnSelectStageScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &948105345
 MonoBehaviour:
   m_ObjectHideFlags: 0
