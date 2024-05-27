@@ -43,56 +43,52 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 		_TrLeft.localEulerAngles = _angle3;
 		_TrRight.localEulerAngles = _angle3;
 
-		if (!_IsReady) { return; }
+		if (!_IsReady || GameManager.instance.IsFinishedStage()) { return; }
 
 		#region 角度の判定
 		if (-2.5f <= _angle && _angle <= 2.5f)
 		{
 			// 推測終了ボタン表示
+			// もし角度が0度から±10%以内だった場合 Great
+			UIManager.instance.ActiveFinishButton(true);
 			completionStatus = "Great";
 
 			// もし角度が0度から±5%以内だった場合
 			if (-1.25f < _angle && _angle < 1.25f)
 			{
 				// Excellent
+				UIManager.instance.ActiveFinishButton(false);
 				completionStatus = "Excellent";
-				SetFinish();
-				GameManager.instance.OnFinishedStage(completionStatus);
+				GameManager.instance.isFinishedStage = true;
 			}
-
-			// もし角度が0度から±10%以内だった場合
-			else if (GameManager.instance.IsFinishedStage()) // 推測終了ボタンが押されたら
-			{
-				// Great
-				// TODO 表情の変化
-				GameManager.instance.OnFinishedStage(completionStatus);
-			}
+			// TODO 表情の変化
 		}
 
 		else if (2.5f < _angle) // もし角度が0度から+10%より大きくなった場合
 		{
 			// Failed
 			completionStatus = "Failed";
-			GameManager.instance.OnFinishedStage(completionStatus);
+			GameManager.instance.isFinishedStage = true;
 		}
 		#endregion
 
 		if (_weightObjList.Count == _weightInfoMap.Count) // もし重りを使い切った場合
 		{
 			// 推測強制終了
+			GameManager.instance.isFinishedStage = true;
+		}
+
+		if (GameManager.instance.isFinishedStage)
+		{
 			GameManager.instance.OnFinishedStage(completionStatus);
 		}
 	}
 
+	public bool IsReady() { return _IsReady; }
+
 	// 角度の変更
 	public void ChangeAngle()
 	{
-		_angle3.z = _angle;
-		transform.localEulerAngles = _angle3;
-		_angle3.z = -_angle3.z;
-		_TrLeft.localEulerAngles = _angle3;
-		_TrRight.localEulerAngles = _angle3;
-
 		float _beforeAngle = _angle;
 		// 割合の小数第三位は偶数丸めを使用
 		float roundedNumber = Mathf.Round(sumWeight / _itemWeight * 100f) / 100f; // 割合 小数第三位まで四捨五入
@@ -115,7 +111,7 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 				_angle = MAX_ANGLE;
 			}
 			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2)
-			.OnStart(DOBeginFunction).OnComplete(DOCompleteFunction);;
+			.OnStart(DOBeginFunction).OnComplete(DOCompleteFunction); ;
 		}
 		// (sum < item) Angle = 割合 x 25 - 25
 		else
@@ -126,7 +122,7 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 				_angle = -MAX_ANGLE;
 			}
 			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2)
-			.OnStart(DOBeginFunction).OnComplete(DOCompleteFunction);;
+			.OnStart(DOBeginFunction).OnComplete(DOCompleteFunction); ;
 		}
 	}
 
@@ -176,11 +172,5 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 	{
 		_IsReady = true;
 	}
-	public bool IsReady() {return _IsReady;}
 	#endregion
-
-	public void SetFinish()
-	{
-		GameManager.instance.SetFinish();
-	}
 }
