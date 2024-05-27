@@ -13,6 +13,7 @@ public class UIManager : SingletonBehavior<UIManager>
     [SerializeField] private GameObject _nextStageText;
     [SerializeField] private GameObject _returnSelectStageText;
     [SerializeField] private GameObject _returnButton;
+    [SerializeField] private GameObject _finishButton;
     [SerializeField] private List<GameObject> _stageNumTextList = new List<GameObject>();
     private GameObject _stageNumberInstance;
     [SerializeField] private RectTransform canvasTransform;
@@ -66,5 +67,10 @@ public class UIManager : SingletonBehavior<UIManager>
     public void OffStageNum()
     {
         _stageNumberInstance.SetActive(false);
+    }
+
+    public void ActiveFinishButton(bool flag)
+    {
+        _finishButton.SetActive(flag);
     }
 }
