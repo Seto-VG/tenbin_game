@@ -31,7 +31,7 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 		_angle3 = Vector3.zero;
 		_angle = -25;
 		DOTween.To(() => 0, (x) => _angle = x, _angle, 2)
-		.OnStart(DOBeginFunction).OnComplete(DOCompleteFunction);
+		.OnStart(() => _IsReady = false).OnComplete(() => _IsReady = true);
 	}
 
 	private void Update()
@@ -111,7 +111,7 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 				_angle = MAX_ANGLE;
 			}
 			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2)
-			.OnStart(DOBeginFunction).OnComplete(DOCompleteFunction); ;
+			.OnStart(() => _IsReady = false).OnComplete(() => _IsReady = true);
 		}
 		// (sum < item) Angle = 割合 x 25 - 25
 		else
@@ -122,7 +122,7 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 				_angle = -MAX_ANGLE;
 			}
 			DOTween.To(() => _beforeAngle, (x) => _angle = x, _angle, 2)
-			.OnStart(DOBeginFunction).OnComplete(DOCompleteFunction); ;
+			.OnStart(() => _IsReady = false).OnComplete(() => _IsReady = true);
 		}
 	}
 
@@ -162,15 +162,4 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 			ChangeAngle();
 		}
 	}
-
-	#region DOTween動作中用の関数群
-	private void DOBeginFunction()
-	{
-		_IsReady = false;
-	}
-	private void DOCompleteFunction()
-	{
-		_IsReady = true;
-	}
-	#endregion
 }
