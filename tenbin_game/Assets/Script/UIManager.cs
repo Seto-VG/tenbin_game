@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using DG.Tweening;
+using TMPro;
 
 public class UIManager : SingletonBehavior<UIManager>
 {
+    public bool isInGame;
     private int stageId = GameData.stageId;
+    public GameObject titleLogo;
     [SerializeField] private GameObject _excellentText;
     [SerializeField] private GameObject _greatText;
     [SerializeField] private GameObject _failedText;
@@ -20,8 +24,15 @@ public class UIManager : SingletonBehavior<UIManager>
 
     private void Start()
     {
-        // stageIdに対応したステージ数のUIをインスタンス化する
-        _stageNumberInstance = Instantiate(_stageNumTextList[stageId], canvasTransform);
+        if (!isInGame)
+        {
+            StartFloatingObj(titleLogo);
+        }
+        else
+        {
+            // stageIdに対応したステージ数のUIをインスタンス化する
+            _stageNumberInstance = Instantiate(_stageNumTextList[stageId], canvasTransform);
+        }
     }
 
     public void ActiveExcellentText()
@@ -72,5 +83,22 @@ public class UIManager : SingletonBehavior<UIManager>
     public void ActiveFinishButton(bool flag)
     {
         _finishButton.SetActive(flag);
+    }
+
+    private void StartFloatingObj(GameObject gameObject)
+    {
+        Vector3 initPosition = gameObject.transform.localPosition;
+        gameObject.transform
+            .DOLocalMoveY(initPosition.y + 50.0f, 3.0f)
+            .SetEase(Ease.InOutSine)
+            .SetLoops(-1, LoopType.Yoyo);
+    }
+
+    private void FadeAnimText(TextMeshProUGUI text,bool bIn)
+    {
+        text
+            .DOFade(bIn ? 1.0f : 0.0f, 1.0f)
+            .SetEase(Ease.InOutSine)
+            .OnComplete(() => FadeAnimText(text,!bIn));
     }
 }
