@@ -28,6 +28,7 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 
 	private void Start()
 	{
+		// 傾きの初期化
 		_angle3 = Vector3.zero;
 		_angle = -25;
 		DOTween.To(() => 0, (x) => _angle = x, _angle, 2)
@@ -43,9 +44,10 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 		_TrLeft.localEulerAngles = _angle3;
 		_TrRight.localEulerAngles = _angle3;
 
+		// 角度変更中かゲームが終了している場合処理をしない
 		if (!_IsReady || GameManager.instance.IsFinishedStage()) { return; }
 
-		#region 角度の判定
+		#region 角度の判定-----------------------------------------------
 		if (-2.5f <= _angle && _angle <= 2.5f)
 		{
 			// 推測終了ボタン表示
@@ -70,7 +72,7 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 			completionStatus = "Failed";
 			GameManager.instance.isFinishedStage = true;
 		}
-		#endregion
+		#endregion 角度の判定-----------------------------------------------
 
 		if (_weightObjList.Count == _weightInfoMap.Count) // もし重りを使い切った場合
 		{
