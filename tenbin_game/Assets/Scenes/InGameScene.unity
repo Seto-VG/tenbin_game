@@ -640,6 +640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e0922992ca114d44930245fcbcbef93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInGame: 1
+  titleEnterText: {fileID: 0}
   _excellentText: {fileID: 1136338658}
   _greatText: {fileID: 777462116}
   _failedText: {fileID: 1473822480}
