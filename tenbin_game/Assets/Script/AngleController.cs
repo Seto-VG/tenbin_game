@@ -3,7 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Linq;
 
-public class AngleController : SingletonBehavior<MonoBehaviour>
+public class AngleController : SingletonBehavior<AngleController>
 {
 	[SerializeField]
 	Transform _TrLeft;
@@ -87,6 +87,7 @@ public class AngleController : SingletonBehavior<MonoBehaviour>
 	}
 
 	public bool IsReady() { return _IsReady; }
+	public string WhichCompletionStatus() { return completionStatus; }
 
 	// 角度の変更
 	public void ChangeAngle()
