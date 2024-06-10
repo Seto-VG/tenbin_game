@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 595152432}
   - component: {fileID: 595152431}
   - component: {fileID: 595152430}
+  - component: {fileID: 595152433}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -515,7 +516,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.7294118, g: 0.94509804, b: 0.5921569, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -571,6 +572,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &595152433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595152429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23306bd16d7f094a9ac33f509bb6a2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 595152431}
+  completeColor: {r: 1, g: 0.6784314, b: 0.2784314, a: 0}
+  failedColor: {r: 0.1137255, g: 0.11764707, b: 0.627451, a: 0}
+  duration: 1
 --- !u!1 &629192844
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInGame: 1
-  titleEnterText: {fileID: 0}
+  titleLogo: {fileID: 0}
   _excellentText: {fileID: 1136338658}
   _greatText: {fileID: 777462116}
   _failedText: {fileID: 1473822480}
