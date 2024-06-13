@@ -22,19 +22,19 @@ public class GameManager : SingletonBehavior<GameManager>
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && _nextSceneFlag)
+        if (Input.GetMouseButtonDown(0) && _nextSceneFlag)
         {
             // 次のステージへ
             StageManager.instance.SetNextStage();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        else if(Input.GetMouseButtonDown(0) && _isCompleatLastStage)
+        else if (Input.GetMouseButtonDown(0) && _isCompleatLastStage)
         {
             // 最後のステージクリア後セレクト画面へ
             SceneManager.LoadScene("StageSelectScene");
             return;
         }
-        else if(_resetSceneFlag)
+        else if (_resetSceneFlag)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -49,10 +49,16 @@ public class GameManager : SingletonBehavior<GameManager>
     // ステージクリア
     public void OnFinishedStage(string whichComplete)
     {
-        if (!isFinishedStage) {return;}
+        if (!isFinishedStage) { return; }
         // Excellentだった場合
         if (whichComplete == "Excellent")
         {
+            // スコアを保存
+            int a = StageManager.instance.GetStageId() + 1;
+            PlayerPrefs.SetInt("score" + a, 1);
+            PlayerPrefs.Save();
+            Debug.Log("score" + a);
+
             UIManager.instance.ActiveExcellentText();
             FXManager.instance.PlayConfetti();
         }
@@ -120,5 +126,5 @@ public class GameManager : SingletonBehavior<GameManager>
     }
 }
 
-    
+
 
