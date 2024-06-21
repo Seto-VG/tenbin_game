@@ -55,8 +55,8 @@ public class AngleController : SingletonBehavior<AngleController>
 			UIManager.instance.ActiveFinishButton(true);
 			completionStatus = "Great";
 
-			// もし角度が0度から±5%以内だった場合
-			if (-1.25f < _angle && _angle < 1.25f)
+			// もし角度が誤差なしだった場合
+			if (_angle == 0)
 			{
 				// Excellent
 				UIManager.instance.ActiveFinishButton(false);
