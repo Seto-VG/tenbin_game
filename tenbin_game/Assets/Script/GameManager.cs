@@ -120,9 +120,11 @@ public class GameManager : SingletonBehavior<GameManager>
         UIManager.instance.ActiveReturnButton();
     }
 
-    public void SetFinish()
+    public void SetFinishGreat()
     {
         isFinishedStage = true;
+        UIManager.instance.ActiveGreatText();
+        FXManager.instance.PlayConfetti();
     }
 }
 
