@@ -9,7 +9,7 @@ public class StageSelect: MonoBehaviour
     [SerializeField]
     private int _stageNumber = 0;
     public GameObject scoreUI;
-    public int score_num = 0; // スコア変数
+    [NonSerialized] public int score_num = 0; // スコア変数
     void Start()
     {
         //TODO そのステージに対応したデータをロードしてクリア状況に応じたスコアを表示
