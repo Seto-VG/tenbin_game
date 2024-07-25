@@ -15,7 +15,7 @@ public class StageSelect: MonoBehaviour
         //TODO そのステージに対応したデータをロードしてクリア状況に応じたスコアを表示
         // スコアのロード   ステージ１のスコアの場合のキー "Stage1"
         score_num = PlayerPrefs.GetInt ("score" + Convert.ToString(_stageNumber), 0);
-        Debug.Log("score" + Convert.ToString(_stageNumber));
+        //Debug.Log("score" + Convert.ToString(_stageNumber));
         if (score_num == 1)
         {
             scoreUI.SetActive(true);
