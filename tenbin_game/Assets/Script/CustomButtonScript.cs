@@ -25,6 +25,7 @@ public class CustomButtonScript : MonoBehaviour, IPointerDownHandler, IPointerUp
     float duration = 0.1f;
     [SerializeField]
     Ease ease = Ease.OutQuad;
+    public AudioClip seClip;
     
     // ---------- クラス変数宣言 ----------
     // ---------- インスタンス変数宣言 ----------
@@ -35,6 +36,7 @@ public class CustomButtonScript : MonoBehaviour, IPointerDownHandler, IPointerUp
     void Start()
     {
         originScale = transform.localScale;
+        AudioManager.instance.AddSEClip("ButtonSE", seClip);
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -56,6 +58,7 @@ public class CustomButtonScript : MonoBehaviour, IPointerDownHandler, IPointerUp
                 .SetEase(Ease.InOutSine);
             return;
         }
+        AudioManager.instance.PlaySE("ButtonSE");
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOScale(originScale * 0.75f, 0.1f).SetEase(Ease.InOutSine));
         seq.Append(transform.DOScale(originScale * 1.5f, 0.5f).SetEase(Ease.InOutSine));
