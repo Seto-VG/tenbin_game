@@ -8,14 +8,6 @@ using TMPro;
 
 public class TitleSceneManager : MonoBehaviour
 {
-    // ---------- 定数宣言 ----------
-    // ---------- ゲームオブジェクト参照変数宣言 ----------
-    // ---------- プレハブ ----------
-    // ---------- プロパティ ----------
-    // ---------- クラス変数宣言 ----------
-    // ---------- インスタンス変数宣言 ----------
-    // ---------- コンストラクタ・デストラクタ ----------
-    // ---------- Unity組込関数 ----------
     private void Start()
     {
 
@@ -26,11 +18,15 @@ public class TitleSceneManager : MonoBehaviour
 
     }
 
-    public void StartGame()
+    public void LoadScene(int stageNum)
     {
-        SceneManager.LoadScene("StageSelectScene");
+        if(stageNum == 0)
+        {
+            SceneManager.LoadScene("StageSelectScene");
+        }
+        else if(stageNum == 1)
+        {
+            SceneManager.LoadScene("TutorialScene");
+        }
     }
-    // ---------- Public関数 ----------
-    // ---------- Protected関数 ----------
-    // ---------- Private関数 ----------
 }
