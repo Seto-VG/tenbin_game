@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class WeightController : MonoBehaviour
 {
-    [SerializeField]
-    private Camera _cam;
-    private Vector3 _initialPosition; // 初期位置
+    private Vector3 _initPos; // 初期位置
     private Rigidbody _weightRb;
     [SerializeField]
     private bool _isFall = false;
@@ -19,7 +17,7 @@ public class WeightController : MonoBehaviour
     void Start()
     {
         _weightRb = gameObject.GetComponent<Rigidbody>();
-        _initialPosition = this.transform.position;
+        _initPos = this.transform.position;
 
         angleController = GameObject.Find("Circle_1").GetComponent<AngleController>();
         if (angleController != null)
@@ -40,14 +38,6 @@ public class WeightController : MonoBehaviour
         {
             _weightRb.isKinematic = true;
         }
-    }
-
-    // 錘をドラッグで動かせるように
-    void WeightDrag()
-    {
-        Vector3 objPos = Camera.main.WorldToScreenPoint(transform.position);
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, objPos.z);
-        transform.position = Camera.main.ScreenToWorldPoint(mousePos);
     }
 
     // オブジェクトが完全にコライダー内に入っているかを判定
@@ -71,9 +61,12 @@ public class WeightController : MonoBehaviour
     void OnMouseDrag()
     {
         if (GameManager.instance.IsFinishedStage() || !angleController.IsReady())
-        {return;} 
+        { return; }
 
-        WeightDrag(); // ドラッグで動かす
+        // ドラッグで動かす
+        Vector3 objPos = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, objPos.z);
+        transform.position = Camera.main.ScreenToWorldPoint(mousePos);
     }
 
     void OnMouseUp()
@@ -82,10 +75,11 @@ public class WeightController : MonoBehaviour
         {
             _isFall = true;
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
+            _weightRb.velocity = new Vector3(0, 0, 0);
         }
         else
         {
-            this.transform.position = _initialPosition;
+            this.transform.position = _initPos;
         }
     }
 }
