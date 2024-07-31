@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 9574838a3686e5d48887d62fdb568ba1
+timeCreated: 1520882278
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 113857
+  packageName: FadeController
+  packageVersion: 1.1
+  assetPath: Assets/FadeController/Demo/3/FadeControllerDEMO3.cs
+  uploadId: 254632

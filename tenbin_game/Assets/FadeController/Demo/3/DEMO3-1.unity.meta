@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ee14175afc1ddb549893b52d631944ed
+timeCreated: 1520885121
+licenseType: Store
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 113857
+  packageName: FadeController
+  packageVersion: 1.1
+  assetPath: Assets/FadeController/Demo/3/DEMO3-1.unity
+  uploadId: 254632

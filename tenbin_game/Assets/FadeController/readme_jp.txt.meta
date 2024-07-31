@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1458c4cc444826c44b421c7e0cc42979
+timeCreated: 1520879540
+licenseType: Store
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 113857
+  packageName: FadeController
+  packageVersion: 1.1
+  assetPath: Assets/FadeController/readme_jp.txt
+  uploadId: 254632
