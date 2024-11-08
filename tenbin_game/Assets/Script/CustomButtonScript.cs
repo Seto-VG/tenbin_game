@@ -66,7 +66,7 @@ public class CustomButtonScript : MonoBehaviour, IPointerDownHandler, IPointerUp
         seq.OnComplete(() =>
         {
             Event.Invoke();
-            image.gameObject.SetActive(false);
+            //image.gameObject.SetActive(false);
         });
         // throw new System.NotImplementedException();
     }

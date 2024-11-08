@@ -8,6 +8,7 @@ public class UIManager : SingletonBehavior<UIManager>
     public bool isInGame;
     private int stageId = GameData.stageId;
     public GameObject titleLogo;
+    public CanvasGroup highlightDraggableArea;
     [SerializeField] private GameObject _excellentText;
     [SerializeField] private GameObject _greatText;
     [SerializeField] private GameObject _failedText;
@@ -29,6 +30,7 @@ public class UIManager : SingletonBehavior<UIManager>
         {
             // stageIdに対応したステージ数のUIをインスタンス化する
             _stageNumberInstance = Instantiate(_stageNumTextList[stageId], canvasTransform);
+            FadeObj(highlightDraggableArea,true);
         }
     }
 

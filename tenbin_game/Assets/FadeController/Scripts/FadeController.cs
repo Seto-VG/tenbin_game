@@ -21,6 +21,18 @@ public class FadeController : MonoBehaviour {
     private void Start() {
         IsFinish = false;
     }
+    
+    private void Update()
+    {
+        if(IsFinish)
+        {
+            m_fadePanel.raycastTarget = false;
+        }
+        else
+        {
+            m_fadePanel.raycastTarget = true;
+        }
+    }
 
     public void FadeIn(float _fadeTime) {
         SetColor(m_color);

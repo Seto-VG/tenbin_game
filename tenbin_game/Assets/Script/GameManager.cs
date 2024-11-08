@@ -22,22 +22,22 @@ public class GameManager : SingletonBehavior<GameManager>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && _nextSceneFlag)
-        {
-            // 次のステージへ
-            StageManager.instance.SetNextStage();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        else if (Input.GetMouseButtonDown(0) && _isCompleatLastStage)
-        {
-            // 最後のステージクリア後セレクト画面へ
-            SceneManager.LoadScene("StageSelectScene");
-            return;
-        }
-        else if (_resetSceneFlag)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        // if (Input.GetMouseButtonDown(0) && _nextSceneFlag)
+        // {
+        //     // 次のステージへ
+        //     StageManager.instance.SetNextStage();
+        //     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // }
+        // else if (Input.GetMouseButtonDown(0) && _isCompleatLastStage)
+        // {
+        //     // 最後のステージクリア後セレクト画面へ
+        //     SceneManager.LoadScene("StageSelectScene");
+        //     return;
+        // }
+        // else if (_resetSceneFlag)
+        // {
+        //     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // }
     }
 
     // 初期化判定
@@ -89,6 +89,7 @@ public class GameManager : SingletonBehavior<GameManager>
             else if (whichComplete == "Failed")
             {
                 _resetSceneFlag = true;
+                UIManager.instance.ActiveReturnSelectStageText();
             }
         });
     }
@@ -123,8 +124,30 @@ public class GameManager : SingletonBehavior<GameManager>
     public void SetFinishGreat()
     {
         isFinishedStage = true;
+        _nextSceneFlag = true;
+        UIManager.instance.ActiveNextStageText();
         UIManager.instance.ActiveGreatText();
         FXManager.instance.PlayConfetti();
+    }
+
+    public void OnClickCompleteButton()
+    {
+        if (_nextSceneFlag)
+        {
+            // 次のステージへ
+            StageManager.instance.SetNextStage();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (_isCompleatLastStage)
+        {
+            // 最後のステージクリア後セレクト画面へ
+            SceneManager.LoadScene("StageSelectScene");
+            return;
+        }
+        else if (_resetSceneFlag)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
 

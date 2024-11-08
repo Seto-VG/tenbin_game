@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492cd70386907fe4581a4fa2866d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
   _isFall: 0
   _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 8
@@ -449,7 +448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492cd70386907fe4581a4fa2866d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
   _isFall: 0
   _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 80
@@ -793,7 +791,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492cd70386907fe4581a4fa2866d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
   _isFall: 0
   _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 2
@@ -1435,7 +1432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492cd70386907fe4581a4fa2866d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
   _isFall: 0
   _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 60
@@ -1587,7 +1583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492cd70386907fe4581a4fa2866d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
   _isFall: 0
   _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 100
@@ -1739,7 +1734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492cd70386907fe4581a4fa2866d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
   _isFall: 0
   _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 8
@@ -1977,7 +1971,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492cd70386907fe4581a4fa2866d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
   _isFall: 0
   _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 35
@@ -2218,7 +2211,7 @@ MonoBehaviour:
   _TrLeft: {fileID: 8407419887413190452}
   _TrRight: {fileID: 8562116871358327268}
   _angle: 0
-  _itemWeight: 86
+  _itemWeight: 110
   sumWeight: 0
   _weightDetectionArea: {fileID: 1263412392562623263}
   _weightObjList: []
@@ -2270,7 +2263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492cd70386907fe4581a4fa2866d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
   _isFall: 0
   _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 20
@@ -2571,7 +2563,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492cd70386907fe4581a4fa2866d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
   _isFall: 0
   _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 50
@@ -2975,7 +2966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492cd70386907fe4581a4fa2866d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
   _isFall: 0
   _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 2
@@ -3127,7 +3117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492cd70386907fe4581a4fa2866d96e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
   _isFall: 0
   _weightFallAreaR: {fileID: 1964410959012407392}
   weight: 20
