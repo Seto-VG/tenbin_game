@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49d3840176a21547876bc839ce9e25e, type: 3}
+  m_Name: StageData
+  m_EditorClassIdentifier: 
+  Sheet1:
+  - itemName: Barbell
+    itemWeight: 5
+    weights1: 2
+    weights2: 3
+    weights3: 5
+    weights4: 10
+    weights5: 0
+    weights6: 0
+    weights7: 0
+    weights8: 0
+    weights9: 0
+    weights10: 0
+  - itemName: Bom
+    itemWeight: 10
+    weights1: 3
+    weights2: 5
+    weights3: 8
+    weights4: 15
+    weights5: 0
+    weights6: 0
+    weights7: 0
+    weights8: 0
+    weights9: 0
+    weights10: 0
+  - itemName: Burger
+    itemWeight: 15
+    weights1: 5
+    weights2: 8
+    weights3: 8
+    weights4: 20
+    weights5: 0
+    weights6: 0
+    weights7: 0
+    weights8: 0
+    weights9: 0
+    weights10: 0
